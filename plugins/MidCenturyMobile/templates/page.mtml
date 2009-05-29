@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard">
+<head>
+    <$mt:include module="HTML Head"$>
+    <title><$mt:PageTitle encode_html="1"$> - <$mt:BlogName encode_html="1"$></title>
+</head>
+<body id="<$mt:BlogTemplateSetID$>" class="mt-page-archive">
+
+<$mt:include module="Banner Header"$>
+
+<div id="content">
+
+<h3><mt:PageTitle></h3>
+<p class="byline">Posted by <$MTEntryAuthorLink show_hcard="0"$>, <$MTEntryDate format="<span class='day'>%e</span> %b %Y"$></p>          
+
+<div id="entry-<$MTEntryID$>" class="entry-asset">
+  <$MTPageBody$>
+  <MTIfNonEmpty tag="PageMore" convert_breaks="0">
+  <$MTPageMore$>
+  </MTIfNonEmpty>
+  <mt:ignore><$MTInclude module="Comments"$></mt:ignore>
+</div>
+
+</div>
+
+<mt:Include module="Banner Footer">
+
+</body>
+</html>

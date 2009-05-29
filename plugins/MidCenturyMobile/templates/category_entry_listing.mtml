@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard">
+<head>
+    <$mt:include module="HTML Head"$>
+    <title><$MTBlogName encode_html="1"$>: <$MTArchiveTitle$> Archives</title>
+</head>
+<body id="<$mt:BlogTemplateSetID$>" class="mt-archive-listing mt-<MTVar name="archive_class">">
+
+<mt:Include module="Banner Header">
+
+<MTIf name="datebased_archive">
+<mt:ignore><!-- Title for category-monthly entry listings --></mt:ignore>
+<h2 id="pagehead" class="archive-title"><$MTArchiveTitle$> Archives</h2>
+<MTElse>
+<mt:ignore><!-- Title for category entry listings --></mt:ignore>
+<h2 id="pagehead" class="archive-title">Recent Entries in <em><$MTArchiveTitle$></em></h2>
+</MTIf>
+
+<mt:Entries>
+<mt:if name="__first__"><ul class="list"></mt:if>
+  <li>
+    <a href="<mt:EntryPermalink>"><h3 class="entryTitle"><mt:EntryTitle></h3>
+    <h4 class="entryDesc"><mt:EntryExcerpt></h4></a>
+  </li>
+<mt:if name="__last__"></ul></mt:if>
+</mt:Entries>
+
+<div id="pageNav">
+<MTArchivePrevious><div id="older"><a href="<$MTArchiveLink$>">&laquo; <$MTArchiveTitle$></a></div></MTArchivePrevious>
+<MTArchiveNext><div id="newer"><a href="<$MTArchiveLink$>"><$MTArchiveTitle$> &raquo;</a></div></MTArchiveNext><div class="clearer"></div>
+</div>
+
+<mt:Include module="Banner Footer">
+
+</body>
+</html>

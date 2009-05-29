@@ -1,0 +1,46 @@
+<MTSetVar name="system_template" value="1">
+<MTIf name="body_class" eq="mt-comment-confirmation">
+    <MTSetVarBlock name="page_title">Comment Submitted</MTSetVarBlock>
+    <MTSetVar name="heading" value="Confirmation...">
+    <MTSetVarBlock name="message">
+    <p>Your comment has been submitted!</p>
+    </MTSetVarBlock>
+</MTIf>
+<MTIf name="body_class" eq="mt-comment-pending">
+    <MTSetVarBlock name="page_title">Comment Pending</MTSetVarBlock>
+    <MTSetVar name="heading" value="Thank you for commenting.">
+    <MTSetVarBlock name="message">
+    <p>Your comment has been received and held for approval by the blog owner.</p>
+    </MTSetVarBlock>
+</MTIf>
+<MTIf name="body_class" eq="mt-comment-error">
+    <MTSetVarBlock name="page_title">Comment Submission Error</MTSetVarBlock>
+    <MTSetVar name="heading" value="$page_title">
+    <MTSetVarBlock name="message">
+    <p>Your comment submission failed for the following reasons:</p>
+    <blockquote>
+        <$MTErrorMessage$>
+    </blockquote>
+    </MTSetVarBlock>
+</MTIf>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard">
+<head>
+    <$mt:include module="HTML Head"$>
+    <title><$MTBlogName encode_html="1"$>: Comment Response</title>
+</head>
+<body id="<$mt:BlogTemplateSetID$>" class="mt-main-index">
+
+<mt:Include module="Banner Header">
+
+<h1 id="page-title"><$MTGetVar name="heading"$></h1>
+
+<$MTGetVar name="message"$>
+
+<p>Return to the <a href="<$MTEntryLink$>">original entry</a>.</p>
+
+<mt:Include module="Banner Footer">
+
+</body>
+</html>

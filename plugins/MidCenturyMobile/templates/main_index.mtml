@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard">
+<head>
+    <$mt:include module="HTML Head"$>
+    <title><$MTBlogName encode_html="1"$></title>
+</head>
+<body id="<$mt:BlogTemplateSetID$>" class="mt-main-index">
+
+<mt:Include module="Banner Header">
+
+<h2 id="pagehead">The latest:</h2>
+
+<mt:Entries blog_ids="3,79">
+<mt:if name="__first__"><ul class="list"></mt:if>
+<mt:setvarblock name="photo"><mt:EntryAssets lastn="1"><img height="100" width="100" src="<$mt:AssetThumbnailURL width="100" square="1"$>" />
+</mt:EntryAssets></mt:setvarblock>
+<mt:if name="photo" ne="">
+  <li class="photo">
+    <a href="<mt:EntryPermalink>"><mt:var name="photo">
+    <h3 class="entryTitle"><mt:EntryTitle></h3>
+    <h4 class="entryDesc"><mt:EntryExcerpt></h4></a>
+  </li>
+<mt:else>
+  <li>
+    <a href="<mt:EntryPermalink>"><h3 class="entryTitle"><mt:EntryTitle></h3>
+    <h4 class="entryDesc"><mt:EntryExcerpt></h4></a>
+  </li>
+</mt:if>
+<mt:if name="__last__"></ul></mt:if>
+</mt:Entries>
+
+<mt:Include module="Banner Footer">
+
+</body>
+</html>

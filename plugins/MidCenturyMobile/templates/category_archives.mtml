@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard">
+<head>
+    <$mt:include module="HTML Head"$>
+    <title><$MTBlogName encode_html="1"$>: Categories</title>
+</head>
+<body id="<$mt:BlogTemplateSetID$>" class="mt-main-index">
+
+<mt:Include module="Banner Header">
+
+<h2 id="pagehead">Categories:</h2>
+
+<mt:IfArchiveTypeEnabled archive_type="Category">
+    <mt:TopLevelCategories>
+        <mt:SubCatIsFirst>
+<ul class="list">
+        </mt:SubCatIsFirst>
+        <mt:IfNonZero tag="mt:CategoryCount">
+  <li>
+    <a href="<$mt:CategoryArchiveLink$>"><h3 class="entryTitle"><$mt:CategoryLabel$></h3>
+        </mt:IfNonZero>
+        <$mt:SubCatsRecurse$>
+            </li>
+        <mt:SubCatIsLast>
+        </ul>
+        </mt:SubCatIsLast>
+    </mt:TopLevelCategories>
+</mt:IfArchiveTypeEnabled>
+
+<mt:Include module="Banner Footer">
+
+</body>
+</html>
